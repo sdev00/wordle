@@ -4,6 +4,17 @@
 I have been playing [Wordle](https://powerlanguage.co.uk/wordle/) for the last few weeks now, and have been enjoying it quite a bit. I was inspired to find out what the best starting word would be.
 
 ## Ideas
+### Helper Tool
+I started by making my own implementation of Wordle. This wasn't trivial, as there are quite a few edge cases to consider. You can run `wordle_game.py` for the full experience.
+
+My implementation allows three levels of assistance:
+1. No help at all.
+2. A reminder of which letters are absent and required.
+3. A list of all possible words it could be, given the clues you have.
+
+There is also an offshoot of this that allows you to get the level 2 assistance even when playing on another website. You just have to input which guesses you used and the color for each letter.
+
+### Scoring Start Words
 The way it works is actually really simple. I take the list of all the words accepted by the program (accepted words) and all the words the program might choose as a wordle (wordles). Note that there are about 5x more accepted words than wordles.
 
 I then go through every accepted word and give it a score, based on how much information it gives you.
