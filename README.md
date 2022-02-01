@@ -39,13 +39,7 @@ The best* starting words can be found in `scores_linear.txt` and `scores_invsqrt
 
 ```
 Top 5 linear scores:
-reast 457.179
-slate 455.365
-trace 455.291
-crate 453.671
-salet 452.58
 ``` 
-```
 Top 5 inverse sqrt scores:
 roate 2254.575
 raise 2253.999
@@ -53,14 +47,20 @@ raile 2253.669
 soare 2252.699
 arise 2251.274
 ```
-\* best by the metric discussed above, these scores do not account for subsequent guesses, which is quite significant
+reast 457.179
+slate 455.365
+trace 455.291
+crate 453.671
+salet 452.58
+```
+\* best as measured by the metric discussed above, these scores do not account for subsequent guesses, which is quite significant
 
 ## Notes
 * I actually scored words using two slightly different algorithms. One is exactly as I describe above, while the other actually measures the score as the proportion by which the number of possible wordles is reduced.
     * It actually takes the square root of this proportion so as not to weight high scores too heavily.
 * Scoring a word against a single wordle runs in time O(n), since it needs to iterate through every other possible wordle. Scoring a word against all wordles (what we want to do) takes time O(n^2), hopefully that's clear enough. This takes about 2 seconds. \
 Scoring every word against every wordle takes time O(n^3), or around 20,000 seconds. I could have left my laptop running over night, but I decided to make a basic heuristic to find good words more easily. \
-Before taking the time to score a word, I would first check if (1) 4 of its letters are in the 7 most common letters and (2) it has all unique letters. Interestingly, we can sort of invert this heuristic to try to score the worst possible words.
+Before taking the time to score a word, I would first check if (1) 4 of its letters are in the 7 most common letters and (2) it has all unique letters. I was then able to score around 850 words in less than 30 minutes. Interestingly, we can sort of invert this heuristic to try to score the worst possible words.
 
     ```
     Bottom 5 linear scores:
